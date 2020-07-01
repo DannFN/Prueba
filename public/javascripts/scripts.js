@@ -244,126 +244,11 @@
         }
     });
 
-    var ctx_5 = document.querySelector("#calls-per-status");
-    var calls_per_status = new Chart(ctx_5, {
-        type: "horizontalBar",
-        data: {
-            labels: [
-                "Numero ocupado", 
-                "Número desconectado", 
-                "ACLARACION", 
-                "CON CONTACTO TT", 
-                "Disponible",
-                "Abandonado",
-                "FAX-AVISO EN BUZON",
-                "FUERA DE SERVICIO",
-                "GESTION TERCERO",
-                "ILOCALIZABLE",
-                "Registro en llamada",
-                "No trabaja Ahi",
-                "No Vive Ahí",
-                "NO CONTESTAN",
-                "No Calificado",
-                "PAGADA",
-                "PROMESA DE DACION",
-                "PROMESA DE PAGO",
-                "RENUENTE"
-            ],
-            datasets: [{
-                label: "calls",
-                data: [50, 
-                    98, 
-                    1, 
-                    59, 
-                    4, 
-                    114,
-                    436,
-                    2,
-                    41,
-                    3,
-                    4,
-                    1,
-                    20,
-                    420,
-                    90,
-                    5,
-                    4,
-                    23,
-                    24 
-                ],
-                backgroundColor: [
-                    "rgba(255, 99, 132, 0.5)", 
-                    "rgba(54, 162, 235, 0.5)", 
-                    "rgba(255, 206, 86, 0.5)", 
-                    "rgba(75, 192, 192, 0.5)", 
-                    "rgba(153, 102, 255, 0.5)",
-                    "rgba(83, 204, 61, 0.5)",
-                    "rgba(212, 70, 193, 0.5)",
-                    "rgba(255, 99, 132, 0.5)", 
-                    "rgba(54, 162, 235, 0.5)", 
-                    "rgba(255, 206, 86, 0.5)", 
-                    "rgba(75, 192, 192, 0.5)", 
-                    "rgba(153, 102, 255, 0.5)",
-                    "rgba(83, 204, 61, 0.5)",
-                    "rgba(212, 70, 193, 0.5)",
-                    "rgba(153, 102, 255, 0.5)",
-                    "rgba(83, 204, 61, 0.5)",
-                    "rgba(212, 70, 193, 0.5)",
-                    "rgba(255, 99, 132, 0.5)", 
-                    "rgba(54, 162, 235, 0.5)"
+    /**
+     * TODO charts of call time 
+     */ 
 
-                ],
-                borderColor: [
-                    "rgba(255, 99, 132, 1)", 
-                    "rgba(54, 162, 235, 1)", 
-                    "rgba(255, 206, 86, 1)", 
-                    "rgba(75, 192, 192, 1)", 
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(83, 204, 61, 1)",
-                    "rgba(212, 70, 193, 1)",
-                    "rgba(255, 99, 132, 1)", 
-                    "rgba(54, 162, 235, 1)", 
-                    "rgba(255, 206, 86, 1)", 
-                    "rgba(75, 192, 192, 1)", 
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(83, 204, 61, 1)",
-                    "rgba(212, 70, 193, 1)",
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(83, 204, 61, 1)",
-                    "rgba(212, 70, 193, 1)",
-                    "rgba(255, 99, 132, 1)", 
-                    "rgba(54, 162, 235, 1)"
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            legend: {
-                display: false,
-            }, 
-            tooltips: {
-                titleFontSize: 20,
-                bodyFontSize: 20
-            },
-            scales: {
-                xAxes: [{
-                    ticks: {
-                        fontSize: 20
-                    }
-                }],
-                yAxes: [{
-                    ticks: {
-                        fontSize: 20,
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
     
-    /*
     const ctx_6 = document.querySelector("#all-calls").getContext("2d");
     const all_calls_chart = new Chart(ctx_1, {
         type: "doughnut",
@@ -441,7 +326,6 @@
             }
         }
     });
-    */
 
     var ctx_8 = document.querySelector("#calls-per-agent");
     var calls_per_agent = new Chart(ctx_8, {

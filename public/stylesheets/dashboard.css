@@ -44,11 +44,13 @@ body {
 .local-dashboard-card-w-chart {
 	background-color: var(--dashboard-color-secundario);
 	height: 100%;
+	min-height: 270px;
 }
 
 .local-dashboard-card-w-chart-light {
 	background-color: var(--dashboard-color-terciario);
 	height: 100%;
+	min-height: 270px;
 }
 
 .local-dashboard-section-title {
