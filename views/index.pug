@@ -99,7 +99,7 @@ html
         div.col-lg-4.col-md-12.col-sm-12.row
           div.col-12.p-2
             div.card.p-4.local-dashboard-card-w-chart
-              span.local-dashboard-section-title List ID chart
+              span.local-dashboard-section-title List ID 
               span(id="total-id-stats-calls").mt-2.mb-2.local-dashboard-primary-data 1399 Total calls 
               canvas(id="list-id-stats" height="400%").mt-2
 
@@ -107,10 +107,25 @@ html
         div.col-lg-4.col-md-12.col-sm-12.row
           div.col-12.p-2
             div.card.p-4.local-dashboard-card-w-chart
-              span.local-dashboard-section-title Custom status category chart
+              span.local-dashboard-section-title Custom status category 
               span(id="total-id-stats-calls").mt-2.mb-2.local-dashboard-primary-data 1129 Total calls 
               canvas(id="custom-status-category-stats" height="400%").mt-2
         
+        div.col-12.row.pl-lg-5.pr-lg-5
+          //- chart of calls per status
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart
+              span.local-dashboard-section-title Calls per Status
+              canvas(id="calls-per-status" height="400%").mt-2
+
+        div.col-12.row.pl-lg-5.pr-lg-5
+          //- Chart of status call time
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart
+              span.local-dashboard-section-title Call Time per status
+              canvas(id="status-call-time" height="400%").mt-2
+          
+
         div.col-12.row.pl-lg-5.pr-lg-5
           //- Container of agents stats
           div.col-12.p-2

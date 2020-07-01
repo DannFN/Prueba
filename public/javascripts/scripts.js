@@ -186,9 +186,9 @@
         data: {
             labels: [
                 "Categoria1", 
-                "10", 
-                "11", 
-                "12", 
+                "Categoria5", 
+                "Categoria6", 
+                "Categoria7", 
                 "Categoria2",
                 "Categoria3",
                 "Categoria4"
@@ -244,8 +244,207 @@
         }
     });
 
-    var ctx_5 = document.querySelector("#calls-per-agent");
-    var calls_per_agent = new Chart(ctx_5, {
+    var ctx_5 = document.querySelector("#calls-per-status");
+    var calls_per_status = new Chart(ctx_5, {
+        type: "horizontalBar",
+        data: {
+            labels: [
+                "Numero ocupado", 
+                "Número desconectado", 
+                "ACLARACION", 
+                "CON CONTACTO TT", 
+                "Disponible",
+                "Abandonado",
+                "FAX-AVISO EN BUZON",
+                "FUERA DE SERVICIO",
+                "GESTION TERCERO",
+                "ILOCALIZABLE",
+                "Registro en llamada",
+                "No trabaja Ahi",
+                "No Vive Ahí",
+                "NO CONTESTAN",
+                "No Calificado",
+                "PAGADA",
+                "PROMESA DE DACION",
+                "PROMESA DE PAGO",
+                "RENUENTE"
+            ],
+            datasets: [{
+                label: "calls",
+                data: [50, 
+                    98, 
+                    1, 
+                    59, 
+                    4, 
+                    114,
+                    436,
+                    2,
+                    41,
+                    3,
+                    4,
+                    1,
+                    20,
+                    420,
+                    90,
+                    5,
+                    4,
+                    23,
+                    24 
+                ],
+                backgroundColor: [
+                    "rgba(255, 99, 132, 0.5)", 
+                    "rgba(54, 162, 235, 0.5)", 
+                    "rgba(255, 206, 86, 0.5)", 
+                    "rgba(75, 192, 192, 0.5)", 
+                    "rgba(153, 102, 255, 0.5)",
+                    "rgba(83, 204, 61, 0.5)",
+                    "rgba(212, 70, 193, 0.5)",
+                    "rgba(255, 99, 132, 0.5)", 
+                    "rgba(54, 162, 235, 0.5)", 
+                    "rgba(255, 206, 86, 0.5)", 
+                    "rgba(75, 192, 192, 0.5)", 
+                    "rgba(153, 102, 255, 0.5)",
+                    "rgba(83, 204, 61, 0.5)",
+                    "rgba(212, 70, 193, 0.5)",
+                    "rgba(153, 102, 255, 0.5)",
+                    "rgba(83, 204, 61, 0.5)",
+                    "rgba(212, 70, 193, 0.5)",
+                    "rgba(255, 99, 132, 0.5)", 
+                    "rgba(54, 162, 235, 0.5)"
+
+                ],
+                borderColor: [
+                    "rgba(255, 99, 132, 1)", 
+                    "rgba(54, 162, 235, 1)", 
+                    "rgba(255, 206, 86, 1)", 
+                    "rgba(75, 192, 192, 1)", 
+                    "rgba(153, 102, 255, 1)",
+                    "rgba(83, 204, 61, 1)",
+                    "rgba(212, 70, 193, 1)",
+                    "rgba(255, 99, 132, 1)", 
+                    "rgba(54, 162, 235, 1)", 
+                    "rgba(255, 206, 86, 1)", 
+                    "rgba(75, 192, 192, 1)", 
+                    "rgba(153, 102, 255, 1)",
+                    "rgba(83, 204, 61, 1)",
+                    "rgba(212, 70, 193, 1)",
+                    "rgba(153, 102, 255, 1)",
+                    "rgba(83, 204, 61, 1)",
+                    "rgba(212, 70, 193, 1)",
+                    "rgba(255, 99, 132, 1)", 
+                    "rgba(54, 162, 235, 1)"
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+                display: false,
+            }, 
+            tooltips: {
+                titleFontSize: 20,
+                bodyFontSize: 20
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        fontSize: 20
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        fontSize: 20,
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    
+    /*
+    const ctx_6 = document.querySelector("#all-calls").getContext("2d");
+    const all_calls_chart = new Chart(ctx_1, {
+        type: "doughnut",
+        data: {
+            labels: [
+                "Numero ocupado", 
+                "Número desconectado", 
+                "ACLARACION", 
+                "CON CONTACTO TT", 
+                "Disponible",
+                "Abandonado",
+                "FAX-AVISO EN BUZON",
+                "FUERA DE SERVICIO",
+                "GESTION TERCERO",
+                "ILOCALIZABLE",
+                "Registro en llamada",
+                "No trabaja Ahi",
+                "No Vive Ahí",
+                "NO CONTESTAN",
+                "No Calificado",
+                "PAGADA",
+                "PROMESA DE DACION",
+                "PROMESA DE PAGO",
+                "RENUENTE"
+            ],
+            datasets: [{
+                label: "All calls",
+                data: [295, 148, 956],
+                backgroundColor: [
+                    "rgba(255, 99, 132, 0.5)", 
+                    "rgba(54, 162, 235, 0.5)", 
+                    "rgba(255, 206, 86, 0.5)"
+                ],
+                borderColor: [
+                    "rgba(255, 99, 132, 1)", 
+                    "rgba(54, 162, 235, 1)", 
+                    "rgba(255, 206, 86, 1)"
+                ],
+                labels: [
+                    "Human answers", 
+                    "No answers", 
+                    "Another answer type"
+                ]
+            }, {
+                label: "Human answer calls DROP rate",
+                data: [114, 181],
+                backgroundColor: [
+                    "rgba(75, 192, 192, 0.5)", 
+                    "rgba(153, 102, 255, 0.5)"
+                ],
+                labels: [
+                    "Drops", 
+                    "Stable"
+                ]
+            }]
+        }, 
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+                labels: {
+                    fontSize: 20
+                }
+            }, 
+            tooltips: {
+                titleFontSize: 20,
+                bodyFontSize: 20,
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        let dataset = data.datasets[tooltipItem.datasetIndex];
+                        let index = tooltipItem.index;
+                        return dataset.labels[index] + ": " + dataset.data[index];
+                    }
+                }
+            }
+        }
+    });
+    */
+
+    var ctx_8 = document.querySelector("#calls-per-agent");
+    var calls_per_agent = new Chart(ctx_8, {
         type: "scatter",
         data: {
             datasets: [{
@@ -326,8 +525,8 @@
         }
     });
 
-    var ctx_6 = document.querySelector("#time-per-agent");
-    var time_per_agent = new Chart(ctx_6, {
+    var ctx_9 = document.querySelector("#time-per-agent");
+    var time_per_agent = new Chart(ctx_9, {
         type: "scatter",
         data: {
             datasets: [{
@@ -422,8 +621,8 @@
         }
     });
 
-    var ctx_7 = document.querySelector("#avg-time-per-agent");
-    var avg_time_per_agent = new Chart(ctx_7, {
+    var ctx_10 = document.querySelector("#avg-time-per-agent");
+    var avg_time_per_agent = new Chart(ctx_10, {
         type: "scatter",
         data: {
             datasets: [{
