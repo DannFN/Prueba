@@ -1,0 +1,76 @@
+:root {
+	--dashboard-color-primario: #1C2039;
+	--dashboard-color-secundario: #262B49;
+	--dashboard-color-terciario: #F5F5F5;
+
+	--color-texto-primario: #C4C4C4;
+	--color-texto-secundario: #BFBFBF;
+	--dashboard-color-texto-secundario: #6494E0;
+
+	--color-texto-secundario-dark: #333333;
+}
+
+body {
+	font-size: 16px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.local-text-primary {
+  color: var(--color-texto-primario);
+}
+
+.local-text-secondary {
+  color: var(--color-texto-secundario);
+}
+
+.local-dashboard-bg {
+  background-color: var(--dashboard-color-primario);
+}
+
+.local-dashboard-title {
+	color: #DEDEDE;
+	font-size: 40px;
+	font-weight: bolder;
+	letter-spacing: 3px;
+}
+
+.local-dashboard-card {
+	background-color: var(--dashboard-color-secundario);
+	min-height: 270px;
+}
+
+.local-dashboard-card-w-chart {
+	background-color: var(--dashboard-color-secundario);
+	height: 100%;
+}
+
+.local-dashboard-card-w-chart-light {
+	background-color: var(--dashboard-color-terciario);
+	height: 100%;
+}
+
+.local-dashboard-section-title {
+  font-size: 25px;
+}
+
+.local-dashboard-section-title-dark {
+	font-size: 25px;
+  color: var(--color-texto-secundario-dark);
+}
+
+.local-dashboard-primary-data {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--color-texto-primario);
+}
+
+.local-dashboard-secondary-data {
+  font-size: 18px;
+  color: var(--dashboard-color-texto-secundario);
+}
+
+.local-dashboard-section-text, .local-dashboard-time {
+  font-size: 18px;
+}

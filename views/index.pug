@@ -1,0 +1,165 @@
+doctype html
+html
+  head
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(charset='utf-8')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/dashboard.css')
+    link(rel='stylesheet', href='/stylesheets/all.min.css')
+    link(rel='stylesheet', href='/chart.js/Chart.min.css')
+ 
+  body.local-dashboard-bg.local-text-primary
+    //- Navegación Horinzontal responsiva
+    div
+    
+    //- Contenedor de todos los stats y charts
+    div.p-4
+      //- Datos generales del reporte
+      div.mb-3.p-2
+        span.text-muted.d-block Report
+        span.d-inline-block.local-dashboard-title Outbound Calling Stats &emsp; 
+        div.d-inline-block.mt-2.local-dashboard-time
+          span.text-muted Time: &emsp; 
+          span(id="consultation-date").local-text-secondary 2020/06/27 19:15:06
+        div.d-block.mt-3.mb-2.local-dashboard-time
+          span.text-muted Time range: 
+          span 2020-06-01 00:00:00 
+          span.text-muted to 
+          span 2020-06-27 23:59:59
+      
+      div.row.justify-content-center
+        div.col-lg-4.col-md-12.col-sm-12.row
+          //- Totals
+          div.col-lg-12.col-md-6.p-2
+            div.card.p-4.local-dashboard-card
+              span.local-dashboard-section-title Total Calls placed
+              span(id="calls-placed").mt-2.mb-2.local-dashboard-primary-data 1399
+              span(id="call-avg-length").mt-1.local-dashboard-secondary-data 55.77 s
+              span.local-dashboard-section-text.local-text-secondary Avg. call length for all calls.
+
+          //- Human Answers
+          div.col-lg-12.col-md-6.p-2
+            div.card.p-4.local-dashboard-card
+              span.local-dashboard-section-title Total Human Answers
+              span(id="human-answers").mt-2.mb-2.local-dashboard-primary-data 295
+              div.row
+                div.col-6
+                  span(id="call-avg-length-ha").mb-1.local-dashboard-secondary-data 127.04 s
+                  span.d-block.local-dashboard-section-text.local-text-secondary Avg. Call length for all HA calls.
+                div.col-6  
+                  span(id="total-time-ha").mb-1.local-dashboard-secondary-data 10:24:36
+                  span.d-block.local-dashboard-section-text.local-text-secondary Total Time.
+
+        div.col-lg-4.col-md-12.col-sm-12.row
+          //- DROPS
+          div.col-lg-12.col-md-6.p-2
+            div.card.p-4.local-dashboard-card
+              span.local-dashboard-section-title Total Outbound DROP Calls
+              span(id="calls-droped").mt-2.mb-2.local-dashboard-primary-data 114 (8.15%)
+              span(id="calls-droped-out-of-answers").mt-1.local-dashboard-secondary-data 114/295 (38.64%)
+              span.local-dashboard-section-text.local-text-secondary Avg. call length for all calls.
+              div.row
+                div.col-6
+                  span(id="call-avg-length-drop").mb-1.local-dashboard-secondary-data 11.63 s
+                  span.d-block.local-dashboard-section-text.local-text-secondary Avg. call length for DROP Calls.
+                div.col-6  
+                  span(id="productivity-rating").mb-1.local-dashboard-secondary-data 0.65
+                  span.d-block.local-dashboard-section-text.local-text-secondary Productivity rating.
+          
+          //- NO ANSWERS
+          div.col-lg-12.col-md-6.p-2
+            div.card.p-4.local-dashboard-card
+              span.local-dashboard-section-title Total NA calls
+              span(id="calls-placed").mt-2.mb-2.local-dashboard-primary-data 148 (10.58%)
+              div.row
+                div.col-6
+                  span(id="auto-na-calls").mb-1.local-dashboard-secondary-data 148
+                  span.d-block.local-dashboard-section-text.local-text-secondary Total auto NA calls -system-set.
+                div.col-6  
+                  span(id="productivity-rating").mb-1.local-dashboard-secondary-data 0
+                  span.d-block.local-dashboard-section-text.local-text-secondary Total manual NA calls -agent-set.
+
+        div.col-lg-4.col-md-12.col-sm-12.row
+          //- Chart of all calls
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart
+              span.local-dashboard-section-title All Calls relations
+              canvas(id="all-calls" height="400%").mt-2
+
+      div.row.justify-content-center
+        //- chart of reasons of hangup
+        div.col-lg-4.col-md-12.col-sm-12.row
+          div.col-lg-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart
+              span.local-dashboard-section-title Call hangup Reasons
+              canvas(id="call-hangup-reasons" height="400%").mt-2
+        
+        //- chart of List ID stats
+        div.col-lg-4.col-md-12.col-sm-12.row
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart
+              span.local-dashboard-section-title List ID chart
+              span(id="total-id-stats-calls").mt-2.mb-2.local-dashboard-primary-data 1399 Total calls 
+              canvas(id="list-id-stats" height="400%").mt-2
+
+        //- chart of custom status category
+        div.col-lg-4.col-md-12.col-sm-12.row
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart
+              span.local-dashboard-section-title Custom status category chart
+              span(id="total-id-stats-calls").mt-2.mb-2.local-dashboard-primary-data 1129 Total calls 
+              canvas(id="custom-status-category-stats" height="400%").mt-2
+        
+        div.col-12.row.pl-lg-5.pr-lg-5
+          //- Container of agents stats
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart
+              span.local-dashboard-section-title Agents stats
+              span(id="total-agents").mt-2.mb-2.local-dashboard-primary-data 26 Agents
+              div.row
+                div.col-lg-3.col-md-6.col-sm-12
+                  span(id="calls-made-by-agents").mt-1.local-dashboard-secondary-data 1396
+                  span.d-block.local-dashboard-section-text.local-text-secondary Calls made by agents.
+                div.col-lg-3.col-md-6.col-sm-12
+                  span(id="avg-wait-time").mt-1.local-dashboard-secondary-data 0:00:25
+                  span.d-block.local-dashboard-section-text.local-text-secondary Avg. wait time between calls.
+                div.col-lg-3.col-md-6.col-sm-12
+                  span(id="total-time-of-calls").mb-1.local-dashboard-secondary-data 21:40:28
+                  span.d-block.local-dashboard-section-text.local-text-secondary Total time of calls.
+                div.col-lg-3.col-md-6.col-sm-12
+                  span(id="avg-time-of-calls").mb-1.local-dashboard-secondary-data 0:00:56
+                  span.d-block.local-dashboard-section-text.local-text-secondary Avg. time of calls.
+
+      div.row.justify-content-center
+        //- scatter chart calls per agent
+        div.col-lg-4.col-md-12.col-sm-12.row
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart-light
+              span.local-dashboard-section-title-dark Calls per Agent
+              canvas(id="calls-per-agent" height="400%").mt-2
+
+        //- scatter chart total time of calls per agent
+        div.col-lg-4.col-md-12.col-sm-12.row
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart-light
+              span.local-dashboard-section-title-dark Total time of calls per agent
+              canvas(id="time-per-agent" height="400%").mt-2
+
+        //- scatter chart calls per agent
+        div.col-lg-4.col-md-12.col-sm-12.row
+          div.col-12.p-2
+            div.card.p-4.local-dashboard-card-w-chart-light
+              span.local-dashboard-section-title-dark Average time of calls per agent
+              canvas(id="avg-time-per-agent" height="400%").mt-2
+
+    script(src="/javascripts/jquery.min.js")
+    script(src="/javascripts/popper.js")
+    script(src="/javascripts/bootstrap.min.js")
+    script(src="/javascripts/all.min.js")
+    script(src="/javascripts/moment.min.js")
+    script(src="/chart.js/Chart.bundle.min.js")
+    script(src="/chart.js/Chart.min.js")
+    script(src="/javascripts/scripts.js")
+
+
